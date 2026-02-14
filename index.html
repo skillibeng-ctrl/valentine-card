@@ -781,12 +781,12 @@
 
       <div class="gif-gallery">
         <div class="gif-item" onclick="celebrateGif(this)">
-          <span class="gif-label">bear hug 💞</span>
+          <span class="gif-label">big hug 💞</span>
           <img class="hug-bear-img" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzZ5Z253bnNmejRkb3ZmcHRlZHVpMnZneTd2MGJpdGQ3Nzg1d2ljMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Wopg1mZqst26bQYdMK/giphy.gif" alt="hugging bear love" loading="lazy">
         </div>
 
         <div class="gif-item" onclick="celebrateGif(this)">
-          <span class="gif-label">teddy love 🌹</span>
+          <span class="gif-label">sending love 🌹</span>
           <img class="bear-img" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGs2NW13bnEwa3pkOXN3bHZ1czZveW1uOGs3YjU4cGtvYmxiNjV5biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zFHu7yuSHm4H5gNZVx/giphy.gif" alt="teddy bear love" loading="lazy">
         </div>
       </div>
@@ -813,12 +813,12 @@
 
   <!-- Audio Elements -->
   <!-- Romantic instrumental music - Using royalty-free sources -->
-  <audio id="bgMusic" loop preload="auto">
-    <!-- Primary: Romantic Piano -->
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    <!-- Fallback -->
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
-  </audio>
+<audio id="bgMusic" loop preload="auto">
+  <!-- Soft Romantic Piano -->
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+  <!-- Gentle Piano Dreams -->
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mpeg">
+</audio>
 
   <script>
     // ===== CONFIGURATION =====
@@ -940,7 +940,7 @@ Either way, I hope today brings you a little joy and a big smile. 💕`,
       createSparkles(btn.left + btn.width/2, btn.top + btn.height/2);
     }
 
-    // ===== YES BUTTON HANDLER =====
+       // ===== YES BUTTON HANDLER =====
     function handleYes() {
       if (state.yesClicked) return;
       state.yesClicked = true;
@@ -978,7 +978,12 @@ Either way, I hope today brings you a little joy and a big smile. 💕`,
       if (!state.isPlaying) {
         toggleMusic();
       }
-    }
+      
+      // 🌸 REDIRECT TO GARDEN PAGE AFTER 2 MINUTES
+      setTimeout(() => {
+        window.location.href = 'secret.html';
+      }, 25000); // 120 seconds = 2 minutes
+    }  // <-- THIS CLOSING BRACE WAS MISSING!
 
     // ===== NO BUTTON HANDLER =====
     function handleNo(e) {
@@ -995,9 +1000,7 @@ Either way, I hope today brings you a little joy and a big smile. 💕`,
       ];
       
       alert(messages[Math.min(state.noClickCount - 1, messages.length - 1)]);
-      escapeNoButton();
-    }
-
+      escapeNoButton();}
     // ===== TYPEWRITER EFFECT =====
     function typeWriter(text, element, speed) {
       element.innerHTML = '';
